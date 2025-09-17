@@ -1,5 +1,5 @@
-{% if page.url == "/" %}
-        <img src="assets/images/ARCHLOGO.png" class="logotkr" style="opacity: 100%;">
-{% else %}
+{% if page.url starts_with "/page" %}
         <img src="../assets/images/ARCHLOGO.png" class="logotkr" style="opacity: 100%;">
+{% else %}
+        <img src="assets/images/ARCHLOGO.png" class="logotkr" style="opacity: 100%;">
 {% endif %}

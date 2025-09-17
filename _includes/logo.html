@@ -1,5 +1,5 @@
-{% if page.url == "/" %}
-        <a href="./">
-{% else %}
+{% if page.url starts_with "/page" %}
         <a href="../">
+{% else %}
+        <a href="./">
 {% endif %}
