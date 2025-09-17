@@ -1,0 +1,12 @@
+---
+layout: base
+---
+<div id="gamePage" style="grid-area: mid;z-index: 2;overflow-y: scroll;position: relative;transition: bottom 0.35s ease;" class="gamePageClass blur active">
+	<main style="flex-grow: 1; margin: 0;">
+	    <article style="margin: 0;">
+	        <section class="viewport" style="display: flex;flex-direction: column;height: calc(100vh - 3rem);margin: 0;">
+	            <iframe class="game" src="https://{{ page.title | default: page.basename | downcase | remove: '.html' }}" data-ruffle-polyfilled="" style="width: 100%;border: none;flex-grow: 1;margin: 0;"></iframe>
+	        </section>
+	    </article>
+	</main>
+</div>
