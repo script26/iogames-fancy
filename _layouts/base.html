@@ -3,19 +3,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&amp;display=swap" media="all">
-        <link rel="stylesheet" type="text/css" media="only screen and (min-device-width: 1025px)" href="/assets/css/desktop.css">
-        <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1024px)" href="/assets/css/mobile.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/fontawesome.css">
-        <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
-        <script src="/assets/js/chat2/script1.js"></script>
-        <link type="text/css" href="/assets/css/chat2.css" rel="stylesheet">
-        <script src="/assets/js/chat3/script2.js"></script>
-        <link type="text/css" href="/assets/css/chat3.css" rel="stylesheet">
-        <script src="/assets/js/draw2/script3.js"></script>
-        <link type="text/css" href="/assets/css/draw2.css" rel="stylesheet">
-        <script src="/assets/js/iochat.js"></script>
-        <script src="/assets/js/iochat-hack.js"></script>
-        <link href="/assets/css/style.css" rel="stylesheet">
+	{% include header.html %}
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="IOGames.fun">
         <title>𝗔𝗡𝗔𝗥𝗖𝗛𝗬 𝗖𝗛𝗔𝗧</title>
@@ -139,7 +127,7 @@
 					<input type="color" id="usernameColorPicker" class="desktopblock colorPickerClass">
 				</div>
 			</div>
-                    <img src="/assets/images/ARCHLOGO.png" class="logotkr" style="opacity: 100%;">
+			{% include image.html %}
                     <div class="foot opac" style="opacity: 100%;">
                         https://anarchychats.com<br>inspired by iogames.fun
                     </div>
