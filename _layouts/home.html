@@ -6,78 +6,86 @@ layout: base
 {% else %}
 <div id="gamePage" style="grid-area: mid;z-index: 2;overflow-y: scroll;position: relative;transition: bottom 0.35s ease;" class="gamePageClass blur">
 {% endif %}
-	<article class="block">
-	    <header>
-	        <h1>All Games</h1>
-	    </header>
-		  {% if site.paginate %}
-		    {% assign posts = paginator.posts %}
-		  {% else %}
-		    {% assign posts = posts %}
-		  {% endif %}
+        <article class="block">
+            <header>
+                <h1>All Games</h1>
+            </header>
+                  {% if site.paginate %}
+                    {% assign posts = paginator.posts %}
+                  {% else %}
+                    {% assign posts = posts %}
+                  {% endif %}
 
-		{%- if posts.size > 0 -%}
-	    <section>
-	        <ul class="tiles">
-			{%- for post in posts -%}
-				<li>
-				        <a href="/{{ post.title | default: page.basename | downcase | remove: '.html' }}" title="{{ post.title | default: page.basename | capitalize | remove: '.html' }}">
-				            <div class="item image" style="background-image: 
-					url('https://web.archive.org/web/20250415204127im_/https://iogames.fun/images/games/tile/{{ post.title | default: page.basename | downcase | remove: '.html' }}.jpg'), 
-					url('https://web.archive.org/web/20250415204127im_/https://iogames.fun/images/games/{{ post.title | default: page.basename | downcase | remove: '.html' }}.jpg');"></div>
-				            <h3 class="item">{{ post.title | default: page.basename | capitalize | remove: '.html' }}</h3>
-				        </a>
-				</li>
-			{%- endfor -%}
-		</ul>
-	    </section>
-			{% if site.paginate %}
-		    <section>
-		        <div class="paginator">
-			        {%- if paginator.previous_page %}
-			            <a href="{{ paginator.previous_page_path | relative_url }}" class="item page previous-page" title="Go to Page {{ paginator.previous_page }}">
-			              {{ paginator.previous_page }}
-			            </a>
-			        {%- else %}
-			        {%- endif %}
-				<div class="item current current-page">{{ paginator.page }}</div>
-			        {%- if paginator.next_page %}
-			            <a href="{{ paginator.next_page_path | relative_url }}" class="item page next-page" title="Go to Page {{ paginator.next_page }}">
-			              {{ paginator.next_page }}
-			            </a>
-			        {%- else %}
-			        {%- endif %}
-		        </div>
-		    </section>
-			{%- endif %}
-		{%- endif -%}
-	    <section>
-	        <div class="text-center">
-	            <div id="iogames-fun_728x90_2" class="inline-block">
-	            </div>
-	        </div>
-	    </section>
-	    <header>
-	        <h2>What is an IO game?</h2>
-	    </header>
-	    <section class="text">
-	        <p>IO &nbsp;game is &nbsp;a &nbsp;special kind of &nbsp;online game. First of &nbsp;all &nbsp;— IO &nbsp;game is &nbsp;a &nbsp;game which requires nothing to &nbsp;play but modern web browser and Internet connection. Second &nbsp;— IO &nbsp;game is &nbsp;free-to-play, massively multiplayer online game. Somebody in &nbsp;the Internet once described &nbsp;IO game as &nbsp;“A &nbsp;game that easy to &nbsp;understand yet hard to &nbsp;master”. This is &nbsp;general yet very good description of &nbsp;the cool &nbsp;IO game. You can play it &nbsp;5 &nbsp;minutes or &nbsp;you can play it &nbsp;5 &nbsp;hours &nbsp;— in &nbsp;both cases you’ll get a &nbsp;lot of &nbsp;fun. That’s what make &nbsp;IO games really awesome!</p>
-	        <p>
-	            There are different types of &nbsp;IO games. In &nbsp;fact you can find a &nbsp;game of &nbsp;any genre among all of &nbsp;IO games. It’s not just simple action games like famous <a href="/genres/agario" class="href">Agar.io</a>
-	            or &nbsp;<a href="/genres/slitherio" class="href">Slither.io</a>
-	            . There are <a href="/genres/platform" class="href">platformers</a>
-	            , <a href="/genres/2d-shooter" class="href">2D &nbsp;shooters</a>
-	            or &nbsp;<a href="/genres/racing" class="href">racing</a>
-	            . You can find even <a href="/genres/rpg" class="href">RPG IO &nbsp;games</a>
-	            or &nbsp;<a href="/genres/strategy" class="href">real-time strategies</a>
-	            . Today almost all popular game types can be &nbsp;found among &nbsp;IO games!
-	        </p>
-	    </section>
-	    <section>
-	        <div class="text-center">
-	            <div id="iogames-fun_728x90_3" class="inline-block">
-	            </div>
-	        </div>
-	    </section>
-	</article>
+                {%- if posts.size > 0 -%}
+            <section>
+                <ul class="tiles">
+                        {%- for post in posts -%}
+                                <li>
+                                        {% if paginator.page > 1 %}
+                                        <a href="../{{ post.title | default: page.basename | downcase | remove: '.html' }}" title="{{ post.title | default: page.basename | capitalize | remove: '.html' }}">
+                                        {% else %}
+                                        <a href="{{ post.title | default: page.basename | downcase | remove: '.html' }}" title="{{ post.title | default: page.basename | capitalize | remove: '.html' }}">
+                                        {% endif %}
+                                            <div class="item image" style="background-image:
+                                        url('https://web.archive.org/web/20250415204127im_/https://iogames.fun/images/games/tile/{{ post.title | default: page.basename | downcase | remove: '.html' }}.jpg'),
+                                        url('https://web.archive.org/web/20250415204127im_/https://iogames.fun/images/games/{{ post.title | default: page.basename | downcase | remove: '.html' }}.jpg');"></div>
+                                            <h3 class="item">{{ post.title | default: page.basename | capitalize | remove: '.html' }}</h3>
+                                        </a>
+                                </li>
+                        {%- endfor -%}
+                </ul>
+            </section>
+                        {% if site.paginate %}
+                    <section>
+                        <div class="paginator">
+                                {%- if paginator.previous_page %}
+                                        <a href="..{{ paginator.previous_page_path | relative_url }}" class="item page previous-page" title="Go to Page {{ paginator.previous_page }}">
+                                        {{ paginator.previous_page }}
+                                    </a>
+                                {%- else %}
+                                {%- endif %}
+                                <div class="item current current-page">{{ paginator.page }}</div>
+                                {%- if paginator.next_page %}
+                                        {% if paginator.page > 1 %}
+                                        <a href="..{{ paginator.next_page_path | relative_url }}" class="item page next-page" title="Go to Page {{ paginator.next_page }}">
+                                        {% else %}
+                                        <a href="{{ paginator.next_page_path | relative_url | remove: '/'}}" class="item page next-page" title="Go to Page {{ paginator.next_page }}">
+                                        {% endif %}
+                                        {{ paginator.next_page }}
+                                    </a>
+                                {%- else %}
+                                {%- endif %}
+                        </div>
+                    </section>
+                        {%- endif %}
+                {%- endif -%}
+            <section>
+                <div class="text-center">
+                    <div id="iogames-fun_728x90_2" class="inline-block">
+                    </div>
+                </div>
+            </section>
+            <header>
+                <h2>What is an IO game?</h2>
+            </header>
+            <section class="text">
+                <p>IO &nbsp;game is &nbsp;a &nbsp;special kind of &nbsp;online game. First of &nbsp;all &nbsp;— IO &nbsp;game is &nbsp;a &nbsp;game which requires nothing to &nbsp;play but modern web browser and Internet connection. Second &nbsp;— IO &nbsp;game is &nbsp;free-to-play, massively multiplayer online game. Somebody in &nbsp;the Internet once described &nbsp;IO game as &nbsp;“A &nbsp;game that easy to &nbsp;understand yet hard to &nbsp;master”. This is &nbsp;general yet very good description of &nbsp;the cool &nbsp;IO game. You can play it &nbsp;5 &nbsp;minutes or &nbsp;you can play it &nbsp;5 &nbsp;hours &nbsp;— in &nbsp;both cases you’ll get a &nbsp;lot of &nbsp;fun. That’s what make &nbsp;IO games really awesome!</p>
+                <p>
+                    There are different types of &nbsp;IO games. In &nbsp;fact you can find a &nbsp;game of &nbsp;any genre among all of &nbsp;IO games. It’s not just simple action games like famous <a href="/genres/agario" class="href">Agar.io</a>
+                    or &nbsp;<a href="/genres/slitherio" class="href">Slither.io</a>
+                    . There are <a href="/genres/platform" class="href">platformers</a>
+                    , <a href="/genres/2d-shooter" class="href">2D &nbsp;shooters</a>
+                    or &nbsp;<a href="/genres/racing" class="href">racing</a>
+                    . You can find even <a href="/genres/rpg" class="href">RPG IO &nbsp;games</a>
+                    or &nbsp;<a href="/genres/strategy" class="href">real-time strategies</a>
+                    . Today almost all popular game types can be &nbsp;found among &nbsp;IO games!
+                </p>
+            </section>
+            <section>
+                <div class="text-center">
+                    <div id="iogames-fun_728x90_3" class="inline-block">
+                    </div>
+                </div>
+            </section>
+        </article>
 </div>
