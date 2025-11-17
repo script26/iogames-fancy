@@ -113,7 +113,7 @@
 	    if (window["WebSocket"]) {
 			function establishConnection() {
 			    // Establish a WebSocket connection to the server
-				conn = new WebSocket("wss://" + "chat2.bzmb.eu" + "/ws");
+				conn = new WebSocket("wss://" + "chat.bzmb.eu" + "/chatroom1");
 	
 				// Event handler when open
 				conn.onopen = function(evt) {
@@ -127,41 +127,45 @@
 				// Event handler for when a message is received from the server
 				conn.onmessage = function(evt) {
 				    try {
-				        // Log raw data for debugging
-				        //console.log("Raw data received:", evt.data);
+				// Log raw data for debugging
+				// console.log("Raw data received:", evt.data);
+
+				// Parse the incoming JSON string into a JavaScript object
+				const data = JSON.parse(evt.data);
+
+				// Handle both single message and array of messages
+				const messages = Array.isArray(data) ? data : [data];
+				
+				// Log parsed data for debugging
+				// console.log("Parsed data:", data);
+
+				// Ensure `data` has both `username` and `text`
+				/* if (!data.username || !data.text) {
+					console.error("Parsed data is missing username or text:", data);
+					return;
+				} */
+
+				messages.forEach(data => {
+					// Display username and message
+					const item = document.createElement("div");
+					item.id = 'box';
 	
-				        // Parse the incoming JSON string into a JavaScript object
-				        const data = JSON.parse(evt.data);
+					// Create a span for the username with bold styling
+					const nameDiv = document.createElement("div");
+					nameDiv.textContent = data.username + ": ";
+					nameDiv.style.color = data.color; // Make the color received from server
 	
-				        // Log parsed data for debugging
-				        //console.log("Parsed data:", data);
+					// Create a div for the message text (on a new line)
+					const messageDiv = document.createElement("div");
+					messageDiv.textContent = data.text;
 	
-				        // Ensure `data` has both `username` and `text`
-				        if (!data.username || !data.text) {
-				            console.error("Parsed data is missing username or text:", data);
-				            return;
-				        }
+					// Append elements to display the message in the chat log
+					item.appendChild(nameDiv); // Add username span
+					item.appendChild(messageDiv); // Add message div
 	
-				        // Display username and message
-				        const item = document.createElement("div");
-						item.id = 'box2';
-	
-				        // Create a span for the username with bold styling
-				        const nameDiv = document.createElement("div");
-				        nameDiv.textContent = data.username + ": ";
-						nameDiv.style.color = data.color; // Make the color recieved from server
-				        // nameDiv.style.fontWeight = "bold"; // Make username bold
-	
-				        // Create a div for the message text (on a new line)
-				        const messageDiv = document.createElement("div");
-				        messageDiv.textContent = data.text;
-	
-				        // Append elements to display the message in the chat log
-				        item.appendChild(nameDiv); // Add username span
-				        item.appendChild(messageDiv); // Add message div
-	
-				        // Append the constructed item to the chat log
-						appendLog(item);
+					// Append the constructed item to the chat log
+					appendLog(item);
+				});
 				    } catch(error) {
 				        //console.error("Error processing WebSocket message:", error);
 				    }
