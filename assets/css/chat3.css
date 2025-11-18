@@ -53,7 +53,7 @@ body {
 	color: white;
 } */
 
-#log3 {/*    background-color: #101010; */margin: 0;padding: 0.5em 0.5em 0.5em 0.5em;/*  position: absolute;*/top: 3em;left: 0.5em;right: 0.5em;bottom: 3em;overflow: auto;/*	width: 540px; */flex-direction: column-reverse;display: flex;flex-grow: 1;height: calc(100vh - 148px);overflow-y: auto;}
+#log3 {/*    background-color: #101010; */margin: 0;padding: 0.5em 0.5em 0.5em 0.5em;/*  position: absolute;*/top: 3em;left: 0.5em;right: 0.5em;bottom: 3em;overflow: auto;/*	width: 540px; */flex-direction: column-reverse;display: flex;flex-grow: 1;height: calc(100% - 148px);overflow-y: auto;}
 
 /* #log > :first-child {
   margin-top: auto;
