@@ -11,12 +11,14 @@
   width: 300px;
   display: flex;
   flex-direction: column-reverse;
+  height: 100%;
 }
 
 #chat3 {
   width: 400px;
   display: flex;
   flex-direction: column-reverse;
+  height: 100%;
 }
 
 #secondChatServer {
